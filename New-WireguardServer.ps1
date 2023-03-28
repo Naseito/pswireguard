@@ -4,7 +4,7 @@ param ([parameter(Mandatory = $true, HelpMessage = "IPv4 Address of Wireguard se
     [parameter(Mandatory = $true, HelpMessage = "Port where Wireguard will listen. Don´t forget to open the port in your router!")][string] $IPv4UDPPort,
     [parameter(Mandatory = $true, HelpMessage = "The MTU for the wg adapter Make sure is the same used by your ISP.")][string] $MTU = "1420",
     [parameter(Mandatory = $true, HelpMessage = "Name of the interface of the machine where wireguard will route to. Eg: eth0")][string] $InterfaceName,
-    [parameter(Mandatory = $true, HelpMessage = "Extermal IPv4/FQDN for the VPN Server. Eg: vpn.somedomain.com")][string] $ServerEndpointName,
+    [parameter(Mandatory = $true, HelpMessage = "External IPv4/FQDN for the VPN Server. Eg: vpn.somedomain.com")][string] $ServerEndpointName,
     [parameter(Mandatory = $true, HelpMessage = "Enter the number of config files for clients that you would like to generate")][Int32] $LicensesToGenerate,
     [parameter(ParameterSetName = 'Routing', HelpMessage = "If set, you will be allowed to enter the subnet desired for VPN routing using parameter -LANRoutingSubnet with CIDR format")][switch] $OnlyLANRouting,
     [parameter(ParameterSetName = 'Routing', HelpMessage = "Enter the subnet desired for VPN routing with CIDR format.Eg: 10.33.0.0/16")][string] $LANRoutingSubnet
