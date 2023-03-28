@@ -2,6 +2,7 @@ param ([parameter(Mandatory = $true, HelpMessage = "IPv4 Address of Wireguard se
     [parameter(Mandatory = $true, HelpMessage = "Netmask of the wireguard server.Accept values from 0 to 32")][Int32] $IPv4NetMask,
     [parameter(Mandatory = $true, HelpMessage = "IPv4 Address of the DNS server that will be forwarded to the VPN client")][string] $IPv4DNS,
     [parameter(Mandatory = $true, HelpMessage = "Port where Wireguard will listen. Don´t forget to open the port in your router!")][string] $IPv4UDPPort,
+    [parameter(Mandatory = $true, HelpMessage = "The MTU for the wg adapter Make sure is the same used by your ISP.")][string] $MTU = "1420",
     [parameter(Mandatory = $true, HelpMessage = "Name of the interface of the machine where wireguard will route to. Eg: eth0")][string] $InterfaceName,
     [parameter(Mandatory = $true, HelpMessage = "Extermal IPv4/FQDN for the VPN Server. Eg: vpn.somedomain.com")][string] $ServerEndpointName,
     [parameter(Mandatory = $true, HelpMessage = "Enter the number of config files for clients that you would like to generate")][Int32] $LicensesToGenerate,
@@ -87,6 +88,7 @@ if (-Not (Test-Path "wg0.conf")) {
 
 Add-Content -Path "wg0.conf" -Value "[Interface]"
 Add-Content -Path "wg0.conf" -Value "Address = $IPv4ServerAddress/$IPv4NetMask"
+Add-Content -Path "wg0.conf" -Value "MTU = $MTU"
 Add-Content -Path "wg0.conf" -Value "SaveConfig = true"
 Add-Content -Path "wg0.conf" -Value 'PostUp = /etc/wireguard/up.sh'
 Add-Content -Path "wg0.conf" -Value 'PostDown = /etc/wireguard/down.sh'

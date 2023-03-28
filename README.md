@@ -17,7 +17,8 @@ The script behave slightly different depending on the OS.
 - **IPv4ServerAddress:** [String] The address space (without netmask) for the wireguard virtual network. Eg: "10.44.0.0"
 - **IPv4NetMask:** [Int] The netmask for the wireguard virtual network. Eg: 24
 - **IPv4DNS:** [String] The IP address of your internal DNS server. Eg: "10.40.0.250"
-- **IPv4UDPPort:** [String] The port where the wireguard server will listen to Eg: "51820"  
+- **IPv4UDPPort:** [String] The port where the wireguard server will listen to Eg: "51820"
+- **MTU:** [String] The MTU for the wg adapter Make sure is the same used by your ISP. Default value is set to: "4120"
 - **InterfaceName:** [String] Name of the interface of the machine where wireguard will route to. Eg: "eth0"
 - **ServerEndpointName:** [String] Extermal IPv4/FQDN for the VPN Server. Eg: "vpn.somedomain.com"
 - **LicensesToGenerate:** [Int] Enter the number of config files for clients that you would like to generate. Limited by the number of possible hosts with the IPv4ServerAddress/IPv4NetMask combination Eg: 10
