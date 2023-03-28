@@ -33,7 +33,7 @@ The script behave slightly different depending on the OS.
 From a PowerShell terminal:
 
 ``` PowerShell
-./Get-WireguardLicenses.ps1 -IPv4ServerAddress "10.44.0.0" -IPv4NetMask 24 -IPv4DNS "10.40.0.250" -IPv4UDPPort "51820" -ServerEndpointName "vpn.somedomain.com" -LicensesToGenerate 10 -OnlyLANRouting -LANRoutingSubnet "10.40.0.0/24" -Verbose
+./New-WireguardServer.ps1 -IPv4ServerAddress "10.44.0.0" -IPv4NetMask 24 -IPv4DNS "10.40.0.250" -IPv4UDPPort "51820" -ServerEndpointName "vpn.somedomain.com" -LicensesToGenerate 10 -OnlyLANRouting -LANRoutingSubnet "10.40.0.0/24" -Verbose
 ```
 
 ### Resulting files
