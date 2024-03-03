@@ -125,6 +125,7 @@ For ($i = 1; $i -le $LicensesToGenerate + 1; $i++) {
     Add-Content -Path "client$($i+1).conf" -Value "[Interface]"
     Add-Content -Path "client$($i+1).conf" -Value $("Address =" + "$($networkInfo.HostAddresses[$i])/$IPv4NetMask")
     Add-Content -Path "client$($i+1).conf" -Value $("PrivateKey = " + $(Get-Content Cprivatekey.key))
+    Add-Content -Path "client$($i+1).conf" -Value "MTU = $MTU"
     Add-Content -Path "client$($i+1).conf" -Value $("DNS = " + $IPv4DNS)
     Add-Content -Path "client$($i+1).conf" -Value "#"
     Add-Content -Path "client$($i+1).conf" -Value "[Peer]"
