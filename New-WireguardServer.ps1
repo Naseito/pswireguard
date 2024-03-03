@@ -21,7 +21,6 @@ else {
     Write-Host "Subnet module not present. Installing..." -ForegroundColor Yellow
     Install-Module Subnet -AllowClobber -Confirm:$False -Force
     Import-Module Subnet
-    Exit
 }
 if (Get-Module -ListAvailable -Name QRCodeSt) {
     Write-Host "Subnet Module exists on the system" -ForegroundColor Green
@@ -32,7 +31,6 @@ else {
     Write-Host "QRCodeSt module not present. Installing..." -ForegroundColor Yellow
     Install-Module QRCodeSt -AllowClobber -Confirm:$False -Force
     Import-Module QRCodeSt
-    Exit
 }
 
 
