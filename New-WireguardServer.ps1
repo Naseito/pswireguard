@@ -33,7 +33,9 @@ else {
     Import-Module QRCodeSt
 }
 
-
+if ($IsLinux -and $PSVersionTable.OS -like "*Ubuntu*" -and $(Get-ChildItem Env:\USER).Value -eq "root") {
+    apt install wireguard -y
+}
 
 #Calculate subnet
 $networkInfo = Get-Subnet -IP $IPv4ServerAddress -MaskBits $IPv4NetMask
@@ -160,7 +162,6 @@ Add-Content -Path "down.sh" -Value "ufw route delete allow in on $InterfaceName 
 
 # If you are on a Ubuntu machine/vm, copy the files and enable the service. Needs root user.
 if ($IsLinux -and $PSVersionTable.OS -like "*Ubuntu*" -and $(Get-ChildItem Env:\USER).Value -eq "root") {
-    apt install wireguard -y
     Copy-Item -Path "up.sh" -Destination "/etc/wireguard/" -Force
     Copy-Item -Path "down.sh" -Destination "/etc/wireguard/" -Force
     Copy-Item -Path "wg0.conf" -Destination "/etc/wireguard/" -Force
